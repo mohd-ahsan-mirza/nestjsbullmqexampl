@@ -1,7 +1,7 @@
 // queue.module.ts
 import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bullmq';
-import { QueueService } from './queue.service';
+import { QueueService } from '../service/queue/queue.service';
 import { QueueProcessor } from './queue.processor';
 
 @Module({
