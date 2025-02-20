@@ -10,7 +10,11 @@ export class QueueProcessor extends WorkerHost {
       await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate async task
       console.log(`Job ${job.id} completed successfully.`);
     } catch (error) {
-      console.error(`Job ${job.id} failed:`, error.message);
+      if (error instanceof Error) {
+        console.error(`Job ${job.id} failed:`, error.message);
+      } else {
+        console.error('An unknown error occurred');
+      }
       throw error; // Job will be retried automatically
     }
   }

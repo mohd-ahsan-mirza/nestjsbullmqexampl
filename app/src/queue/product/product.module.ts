@@ -1,8 +1,8 @@
 // queue.module.ts
 import { Module } from '@nestjs/common';
 import { BullModule } from '@nestjs/bullmq';
-import { QueueService } from '../service/queue/queue.service';
-import { QueueProcessor } from './queue.processor';
+import { ProductService } from 'app/src/service/product/product.service';
+import { ProductQueueProcessor } from './product.processor';
 
 @Module({
   imports: [
@@ -13,10 +13,10 @@ import { QueueProcessor } from './queue.processor';
       },
     }),
     BullModule.registerQueue({
-      name: 'messageQueue',
+      name: 'productQueue',
     }),
   ],
-  providers: [QueueService, QueueProcessor],
-  exports: [QueueService],
+  providers: [ProductService, ProductQueueProcessor],
+  exports: [ProductService],
 })
-export class QueueModule {}
+export class ProductModule {}
