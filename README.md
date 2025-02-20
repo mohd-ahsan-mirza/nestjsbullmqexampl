@@ -38,7 +38,7 @@ The app will be available at [http://localhost:3000](http://localhost:3000).
 ```bash
 npm install
 npm run build
-npm run start:prod
+npm run start:main
 ```
 
 ---
